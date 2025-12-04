@@ -1,0 +1,37 @@
+# Archivos del Sistema Operativo
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs y Editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Node.js (si se usa en el futuro)
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+build/
+
+# Python (si se usa en el futuro)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+
+# Archivos compilados
+*.min.js
+*.min.css
+
+# Logs
+*.log
+npm-debug.log*

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Grafos - Estructura de Datos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">📊 GraphBlog</h1>
+                <p class="subtitle">Tu guía completa sobre la estructura de datos Grafos</p>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active" onclick="showPost('inicio')">Inicio</a></li>
+                    <li><a href="#" class="nav-link" onclick="showPost('post1')">Post 1</a></li>
+                    <li><a href="#" class="nav-link" onclick="showPost('post2')">Post 2</a></li>
+                    <li><a href="#" class="nav-link" onclick="showPost('post3')">Post 3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Página de Inicio -->
+            <section id="inicio" class="post active">
+                <div class="post-header">
+                    <h2>Bienvenido al Blog de Grafos</h2>
+                    <p class="post-date">Diciembre 2025</p>
+                </div>
+                <div class="post-body">
+                    <p>Hola y bienvenido a <strong>GraphBlog</strong>, tu recurso de aprendizaje sobre la estructura de datos Grafos. En este espacio exploraremos los conceptos fundamentales, las representaciones más eficientes y los algoritmos esenciales para trabajar con grafos.</p>
+                    
+                    <h3>¿Qué encontrarás aquí?</h3>
+                    <ul class="features-list">
+                        <li><strong>Post 1:</strong> Introducción a los Grafos - Aprende qué son los grafos, sus componentes y sus tipos principales.</li>
+                        <li><strong>Post 2:</strong> Representación de Grafos - Descubre las dos formas principales de representar grafos en memoria.</li>
+                        <li><strong>Post 3:</strong> Algoritmos Fundamentales - Domina los algoritmos de recorrido BFS y DFS.</li>
+                    </ul>
+
+                    <div class="intro-box">
+                        <p><em>Los grafos son una estructura de datos fundamental en la informática, utilizada en redes, sistemas de rutas, redes sociales y mucho más. ¡Vamos a aprender!</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Post 1: Introducción a los Grafos -->
+            <section id="post1" class="post">
+                <div class="post-header">
+                    <h2>Post #1: Introducción a los Grafos - Nodos, Aristas y Tipos</h2>
+                    <p class="post-date">Diciembre 3, 2025</p>
+                </div>
+                <div class="post-body">
+                    <h3>¿Qué es un Grafo?</h3>
+                    <p>Un <strong>grafo</strong> es una estructura de datos que consiste en un conjunto de objetos (llamados <strong>vértices</strong> o <strong>nodos</strong>) conectados por enlaces (llamados <strong>aristas</strong> o <strong>ejes</strong>). Los grafos se utilizan para representar relaciones y conexiones entre diferentes entidades.</p>
+
+                    <h3>Componentes Clave de un Grafo</h3>
+                    <ul class="content-list">
+                        <li><strong>Vértices (V):</strong> Son los puntos o nodos del grafo. Cada vértice puede representar una entidad única (persona, ciudad, servidor, etc.).</li>
+                        <li><strong>Aristas (E):</strong> Son las conexiones entre vértices. Cada arista conecta exactamente dos vértices.</li>
+                        <li><strong>Peso:</strong> En algunos grafos, las aristas pueden tener un valor asociado llamado peso (distancia, costo, capacidad, etc.).</li>
+                    </ul>
+
+                    <h3>Tipos de Grafos</h3>
+                    
+                    <div class="type-container">
+                        <div class="type-box">
+                            <h4>Grafos No Dirigidos</h4>
+                            <p>Las aristas no tienen dirección. Si existe una conexión entre A y B, es bidireccional (A→B y B→A).</p>
+                            <p><em>Ejemplo:</em> Red de amigos en redes sociales.</p>
+                        </div>
+                        
+                        <div class="type-box">
+                            <h4>Grafos Dirigidos (Dígrafos)</h4>
+                            <p>Las aristas tienen dirección, representada por flechas. Una arista A→B no implica una arista B→A.</p>
+                            <p><em>Ejemplo:</em> Sistema de seguimiento en redes sociales (Twitter: seguir es unidireccional).</p>
+                        </div>
+                        
+                        <div class="type-box">
+                            <h4>Grafos Ponderados</h4>
+                            <p>Cada arista tiene un peso asociado. Pueden ser dirigidos o no dirigidos.</p>
+                            <p><em>Ejemplo:</em> Mapa de carreteras con distancias entre ciudades.</p>
+                        </div>
+                    </div>
+
+                    <h3>Diagrama Visual - Grafo No Dirigido con 5 Nodos</h3>
+                    <div class="diagram-container">
+                        <canvas id="canvas1" width="600" height="400"></canvas>
+                    </div>
+
+                    <p class="caption">El diagrama anterior muestra un grafo no dirigido con 5 nodos (A, B, C, D, E) y 6 aristas que los conectan.</p>
+
+                    <h3>Terminología Adicional</h3>
+                    <ul class="content-list">
+                        <li><strong>Grado de un Vértice:</strong> Es el número de aristas conectadas a ese vértice.</li>
+                        <li><strong>Camino:</strong> Una secuencia de vértices conectados por aristas.</li>
+                        <li><strong>Ciclo:</strong> Un camino que comienza y termina en el mismo vértice.</li>
+                        <li><strong>Grafo Conectado:</strong> Un grafo donde existe un camino entre cada par de vértices.</li>
+                        <li><strong>Grafo Desconectado:</strong> Un grafo donde al menos dos vértices no tienen camino entre ellos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Post 2: Representación de Grafos -->
+            <section id="post2" class="post">
+                <div class="post-header">
+                    <h2>Post #2: Representación de Grafos</h2>
+                    <p class="post-date">Diciembre 3, 2025</p>
+                </div>
+                <div class="post-body">
+                    <h3>¿Por qué es importante la representación?</h3>
+                    <p>La forma en que representamos un grafo en la memoria de una computadora afecta directamente la eficiencia de nuestros algoritmos. Existen dos formas principales: <strong>Lista de Adyacencia</strong> y <strong>Matriz de Adyacencia</strong>.</p>
+
+                    <h3>1. Lista de Adyacencia</h3>
+                    <div class="concept-box">
+                        <p><strong>Definición:</strong> Para cada vértice, mantenemos una lista de todos los vértices adyacentes (conectados directamente).</p>
+                        
+                        <h4>Estructura:</h4>
+                        <pre><code>A → [B, C]
+B → [A, C, D]
+C → [A, B, E]
+D → [B]
+E → [C]</code></pre>
+
+                        <h4>Ventajas:</h4>
+                        <ul class="content-list">
+                            <li>✓ <strong>Eficiencia de Espacio:</strong> O(V + E), ideal para grafos dispersos (pocos aristas).</li>
+                            <li>✓ <strong>Iteración Eficiente:</strong> Acceso rápido a todos los vecinos de un vértice.</li>
+                            <li>✓ <strong>Escalabilidad:</strong> Mejor desempeño con grafos grandes y dispersos.</li>
+                        </ul>
+
+                        <h4>Desventajas:</h4>
+                        <ul class="content-list">
+                            <li>✗ Verificar si existe una arista específica puede requerir búsqueda lineal.</li>
+                        </ul>
+                    </div>
+
+                    <h3>2. Matriz de Adyacencia</h3>
+                    <div class="concept-box">
+                        <p><strong>Definición:</strong> Una matriz cuadrada donde la celda [i][j] indica si existe una arista entre el vértice i y el vértice j.</p>
+                        
+                        <h4>Estructura:</h4>
+                        <pre><code>    A  B  C  D  E
+A [ 0  1  1  0  0 ]
+B [ 1  0  1  1  0 ]
+C [ 1  1  0  0  1 ]
+D [ 0  1  0  0  0 ]
+E [ 0  0  1  0  0 ]</code></pre>
+
+                        <h4>Ventajas:</h4>
+                        <ul class="content-list">
+                            <li>✓ <strong>Eficiencia de Tiempo:</strong> O(1) para verificar si existe una arista entre dos vértices.</li>
+                            <li>✓ <strong>Simplicidad:</strong> Estructura simple y fácil de implementar.</li>
+                            <li>✓ <strong>Eficiente para Operaciones de Matriz:</strong> Permite usar álgebra lineal.</li>
+                        </ul>
+
+                        <h4>Desventajas:</h4>
+                        <ul class="content-list">
+                            <li>✗ <strong>Ineficiencia de Espacio:</strong> O(V²), incluso para grafos muy dispersos.</li>
+                            <li>✗ <strong>Espacio Desperdiciado:</strong> Especialmente problematical para grafos grandes con pocas aristas.</li>
+                        </ul>
+                    </div>
+
+                    <h3>Comparación Visual: Ambas Representaciones</h3>
+                    <div class="comparison-container">
+                        <div class="comparison-item">
+                            <h4>Grafo Original</h4>
+                            <canvas id="canvas2" width="300" height="300"></canvas>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>Lista de Adyacencia</h4>
+                            <pre><code id="adjacency-list">A → [B, C]
+B → [A, C, D]
+C → [A, B, E]
+D → [B]
+E → [C]</code></pre>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>Matriz de Adyacencia</h4>
+                            <table class="adjacency-matrix">
+                                <tr>
+                                    <th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th>
+                                </tr>
+                                <tr>
+                                    <th>A</th><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td>
+                                </tr>
+                                <tr>
+                                    <th>B</th><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td>
+                                </tr>
+                                <tr>
+                                    <th>C</th><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td>
+                                </tr>
+                                <tr>
+                                    <th>D</th><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td>
+                                </tr>
+                                <tr>
+                                    <th>E</th><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <h3>¿Cuál Elegir?</h3>
+                    <div class="decision-box">
+                        <p><strong>Usa Lista de Adyacencia cuando:</strong></p>
+                        <ul class="content-list">
+                            <li>El grafo es disperso (pocas aristas relativas a V²)</li>
+                            <li>Necesitas iterar sobre los vecinos de un vértice frecuentemente</li>
+                            <li>La memoria es limitada</li>
+                        </ul>
+
+                        <p><strong>Usa Matriz de Adyacencia cuando:</strong></p>
+                        <ul class="content-list">
+                            <li>El grafo es denso (muchas aristas)</li>
+                            <li>Necesitas verificar rápidamente si existe una arista específica</li>
+                            <li>Trabajas con algoritmos basados en operaciones de matriz</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Post 3: Algoritmos Fundamentales de Recorrido -->
+            <section id="post3" class="post">
+                <div class="post-header">
+                    <h2>Post #3: Algoritmos Fundamentales de Recorrido</h2>
+                    <p class="post-date">Diciembre 3, 2025</p>
+                </div>
+                <div class="post-body">
+                    <h3>Recorrido de Grafos</h3>
+                    <p>El <strong>recorrido de un grafo</strong> (o traversal) es el proceso de visitar todos los vértices de un grafo siguiendo un orden específico. Existen dos estrategias principales: <strong>BFS (Breadth-First Search)</strong> y <strong>DFS (Depth-First Search)</strong>.</p>
+
+                    <h3>1. Búsqueda en Amplitud (BFS - Breadth-First Search)</h3>
+                    <div class="algorithm-box">
+                        <h4>Concepto:</h4>
+                        <p>BFS explora el grafo nivel por nivel, visitando todos los vértices a distancia k antes de explorar vértices a distancia k+1. Utiliza una <strong>cola (Queue)</strong> para mantener el orden de exploración.</p>
+
+                        <h4>Algoritmo Paso a Paso:</h4>
+                        <ol class="content-list">
+                            <li>Inicializar una cola vacía y marcar el vértice inicial como visitado.</li>
+                            <li>Encolar el vértice inicial.</li>
+                            <li>Mientras la cola no esté vacía:
+                                <ul>
+                                    <li>Desencolar un vértice.</li>
+                                    <li>Procesar el vértice (visitarlo).</li>
+                                    <li>Para cada vértice adyacente no visitado:
+                                        <ul>
+                                            <li>Marcarlo como visitado.</li>
+                                            <li>Encolarlo.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+
+                        <h4>Pseudocódigo:</h4>
+                        <pre><code>BFS(grafo, inicio):
+    cola = Queue()
+    visitados = Set()
+    cola.encolar(inicio)
+    visitados.añadir(inicio)
+    
+    mientras cola no esté vacía:
+        vértice = cola.desencolar()
+        procesar(vértice)
+        
+        para cada adyacente en vecinos(vértice):
+            si adyacente no está en visitados:
+                visitados.añadir(adyacente)
+                cola.encolar(adyacente)</code></pre>
+
+                        <h4>Complejidad:</h4>
+                        <ul class="content-list">
+                            <li><strong>Tiempo:</strong> O(V + E) - visita cada vértice y arista una vez.</li>
+                            <li><strong>Espacio:</strong> O(V) - para la cola y conjunto de visitados.</li>
+                        </ul>
+
+                        <h4>Características:</h4>
+                        <ul class="content-list">
+                            <li>✓ Encuentra el camino más corto en grafos sin pesos.</li>
+                            <li>✓ Ideal para búsquedas por niveles.</li>
+                            <li>✓ Garantiza encontrar la distancia mínima desde el inicio a cada vértice.</li>
+                        </ul>
+
+                        <h4>Aplicaciones:</h4>
+                        <ul class="content-list">
+                            <li>Encontrar caminos más cortos</li>
+                            <li>Análisis de redes sociales</li>
+                            <li>Sistemas de recomendación</li>
+                            <li>Búsqueda en redes de computadoras</li>
+                        </ul>
+                    </div>
+
+                    <h3>Ejemplo Visual: BFS</h3>
+                    <div class="diagram-container">
+                        <canvas id="canvas3" width="600" height="400"></canvas>
+                    </div>
+                    <p class="caption">Visualización del recorrido BFS comenzando desde el vértice A. El orden de visita es: A → B → C → D → E</p>
+
+                    <hr class="divider">
+
+                    <h3>2. Búsqueda en Profundidad (DFS - Depth-First Search)</h3>
+                    <div class="algorithm-box">
+                        <h4>Concepto:</h4>
+                        <p>DFS explora el grafo de manera profunda, visitando vértices y sus descendientes lo más lejos posible antes de retroceder. Utiliza una <strong>pila (Stack)</strong> o <strong>recursión</strong>.</p>
+
+                        <h4>Algoritmo Paso a Paso:</h4>
+                        <ol class="content-list">
+                            <li>Inicializar una pila vacía y marcar el vértice inicial como visitado.</li>
+                            <li>Apilar el vértice inicial.</li>
+                            <li>Mientras la pila no esté vacía:
+                                <ul>
+                                    <li>Desapilar un vértice.</li>
+                                    <li>Procesar el vértice (visitarlo).</li>
+                                    <li>Para cada vértice adyacente no visitado:
+                                        <ul>
+                                            <li>Marcarlo como visitado.</li>
+                                            <li>Apilarlo.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+
+                        <h4>Pseudocódigo (Iterativo):</h4>
+                        <pre><code>DFS(grafo, inicio):
+    pila = Stack()
+    visitados = Set()
+    pila.apilar(inicio)
+    visitados.añadir(inicio)
+    
+    mientras pila no esté vacía:
+        vértice = pila.desapilar()
+        procesar(vértice)
+        
+        para cada adyacente en vecinos(vértice):
+            si adyacente no está en visitados:
+                visitados.añadir(adyacente)
+                pila.apilar(adyacente)</code></pre>
+
+                        <h4>Pseudocódigo (Recursivo):</h4>
+                        <pre><code>DFS_Recursivo(grafo, vértice, visitados):
+    visitados.añadir(vértice)
+    procesar(vértice)
+    
+    para cada adyacente en vecinos(vértice):
+        si adyacente no está en visitados:
+            DFS_Recursivo(grafo, adyacente, visitados)</code></pre>
+
+                        <h4>Complejidad:</h4>
+                        <ul class="content-list">
+                            <li><strong>Tiempo:</strong> O(V + E) - visita cada vértice y arista una vez.</li>
+                            <li><strong>Espacio:</strong> O(V) - para la pila y conjunto de visitados (o la pila de recursión).</li>
+                        </ul>
+
+                        <h4>Características:</h4>
+                        <ul class="content-list">
+                            <li>✓ Explora caminos largos antes de retroceder.</li>
+                            <li>✓ Ideal para detectar ciclos.</li>
+                            <li>✓ Requiere menos memoria que BFS en algunos casos.</li>
+                        </ul>
+
+                        <h4>Aplicaciones:</h4>
+                        <ul class="content-list">
+                            <li>Detección de ciclos en un grafo</li>
+                            <li>Ordenamiento topológico</li>
+                            <li>Búsqueda de componentes fuertemente conectados</li>
+                            <li>Resolución de problemas de laberintos</li>
+                            <li>Análisis de conectividad</li>
+                        </ul>
+                    </div>
+
+                    <h3>Ejemplo Visual: DFS</h3>
+                    <div class="diagram-container">
+                        <canvas id="canvas4" width="600" height="400"></canvas>
+                    </div>
+                    <p class="caption">Visualización del recorrido DFS comenzando desde el vértice A. El orden de visita es: A → B → D → C → E</p>
+
+                    <hr class="divider">
+
+                    <h3>Comparación: BFS vs DFS</h3>
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Aspecto</th>
+                            <th>BFS</th>
+                            <th>DFS</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Estructura de Datos</strong></td>
+                            <td>Cola (Queue)</td>
+                            <td>Pila (Stack) / Recursión</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Orden de Exploración</strong></td>
+                            <td>Por niveles (amplitud)</td>
+                            <td>Por profundidad</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Camino Más Corto</strong></td>
+                            <td>✓ En grafos sin pesos</td>
+                            <td>✗ No garantizado</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Detección de Ciclos</strong></td>
+                            <td>✓ Sí</td>
+                            <td>✓ Sí (más natural)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complejidad Temporal</strong></td>
+                            <td>O(V + E)</td>
+                            <td>O(V + E)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Complejidad Espacial</strong></td>
+                            <td>O(V) - puede ser mayor en grafos densos</td>
+                            <td>O(h) - donde h es la altura (recursión)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mejor para</strong></td>
+                            <td>Búsquedas por niveles, caminos más cortos</td>
+                            <td>Exploración profunda, ciclos, topología</td>
+                        </tr>
+                    </table>
+
+                    <h3>¿Cuál Algoritmo Usar?</h3>
+                    <div class="decision-box">
+                        <p><strong>Usa BFS cuando:</strong></p>
+                        <ul class="content-list">
+                            <li>Necesitas encontrar el camino más corto en un grafo sin pesos</li>
+                            <li>Quieres explorar el grafo nivel por nivel</li>
+                            <li>Buscas la distancia mínima desde un vértice a otro</li>
+                        </ul>
+
+                        <p><strong>Usa DFS cuando:</strong></p>
+                        <ul class="content-list">
+                            <li>Necesitas detectar ciclos en un grafo</li>
+                            <li>Requieres un ordenamiento topológico</li>
+                            <li>Buscas componentes fuertemente conectados</li>
+                            <li>La recursión es más natural para tu problema</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 GraphBlog - Blog sobre Estructura de Datos Grafos</p>
+                <p>Repositorio en <a href="https://github.com/juliangithu/proyecto-copilot" target="_blank" class="footer-link">GitHub: proyecto-copilot</a></p>
+                <p class="footer-note">Este blog fue creado como parte del proyecto educativo sobre estructuras de datos fundamentales.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
